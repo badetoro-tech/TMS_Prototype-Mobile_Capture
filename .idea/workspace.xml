@@ -4,21 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - capture image">
-      <change afterPath="$PROJECT_DIR$/extract.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/image_edit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/modules/plate_recognizer.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/1.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/2.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/3.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/4.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/TMS_Prototype-Mobile_Capture.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TMS_Prototype-Mobile_Capture.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/make-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/make-post.html" afterDir="false" />
+    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - testing plate number capture">
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/5433.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632077848941</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="start - testing plate number capture">
+      <created>1632090331791</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1632090331791</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -209,6 +203,7 @@
     <MESSAGE value="start - include gitignore and requirements.txt" />
     <MESSAGE value="start - include gitignore and requirements.txt&#10;&#10;-- add gunicorn" />
     <MESSAGE value="start - capture image" />
-    <option name="LAST_COMMIT_MESSAGE" value="start - capture image" />
+    <MESSAGE value="start - testing plate number capture" />
+    <option name="LAST_COMMIT_MESSAGE" value="start - testing plate number capture" />
   </component>
 </project>
