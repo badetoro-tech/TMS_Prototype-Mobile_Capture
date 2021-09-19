@@ -1,7 +1,7 @@
 {% include "header.html" %}
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1470092306007-055b6797ca72?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80')">
+  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/traffic-police.jpg')}}')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -20,8 +20,8 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         <div class="clearfix">
-          <input type="file" name="image" accept="image/*" capture="environment">
-          <a class="btn btn-primary float-left" href="{{url_for('capture_image')}}">Capture Image</a>
+          <input type="file" name="image" accept="image/*" capture="environment" class="btn btn-primary float-left">
+<!--          <a class="btn btn-primary float-left" href="{{url_for('capture_image')}}">Capture Offence</a>-->
         </div>
       </div>
     </div>
