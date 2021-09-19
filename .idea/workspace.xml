@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - include gitignore and requirements.txt&#10;&#10;-- add gunicorn">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/clean-blog.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/clean-blog.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
+    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - capture image">
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tms_prototype.db" beforeDir="false" afterPath="$PROJECT_DIR$/tms_prototype.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632072620593</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="start - capture image">
+      <created>1632077560862</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1632077560862</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,6 +184,7 @@
     <MESSAGE value="start - include gitignore" />
     <MESSAGE value="start - include gitignore and requirements.txt" />
     <MESSAGE value="start - include gitignore and requirements.txt&#10;&#10;-- add gunicorn" />
-    <option name="LAST_COMMIT_MESSAGE" value="start - include gitignore and requirements.txt&#10;&#10;-- add gunicorn" />
+    <MESSAGE value="start - capture image" />
+    <option name="LAST_COMMIT_MESSAGE" value="start - capture image" />
   </component>
 </project>
