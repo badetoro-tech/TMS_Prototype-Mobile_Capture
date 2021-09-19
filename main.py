@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, flash, abort
+from flask import Flask, render_template, redirect, url_for, flash, abort, request, session
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
 from datetime import date, datetime
@@ -11,11 +11,29 @@ from flask_gravatar import Gravatar
 import os
 from functools import wraps
 from sqlalchemy.ext.declarative import declarative_base
+from werkzeug.utils import secure_filename
+from pprint import pprint
+from os import listdir, replace, remove
+from os.path import isfile, join, getsize
+import time
+from PIL import Image
+from modules.image_edit import EditImage, AllPaths
+from modules.plate_recognizer import PlateRecognizer
+import shutil
+from collections import namedtuple
+
+UPLOAD_FOLDER = 'static/vehicle-capture/uploads'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'jfif'}
+TOKEN = '8c7da83008dc52f30a4624fcaaf1d7c9912e69fc'
+
+all_paths = AllPaths()
+upload_dir = all_paths.upload_path
 
 app = Flask(__name__)
 # app.config['SECRET_KEY'] = os.urandom(16)
 # app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['SECRET_KEY'] = '#RIFUiahfsdhio83F8D3'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ckeditor = CKEditor(app)
 Bootstrap(app)
 login_manager = LoginManager()
@@ -89,6 +107,11 @@ def admin_only(function):
     return wrapper_function
 
 
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 # Create all the tables in the database
 db.create_all()
 
@@ -112,7 +135,7 @@ def login():
         if user:
             if check_password_hash(user.password, form.password.data):
                 login_user(user)
-                return redirect(url_for('homepage'))
+                return redirect(url_for('capture_image'))
             else:
                 flash('Password incorrect, try again')
                 return redirect(url_for('login'))
@@ -155,15 +178,88 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/homepage')
-def homepage():
+@app.route('/capture_image', methods=['GET', 'POST'])
+def capture_image():
     # posts = Bookings.query.all()
+    if request.method == 'POST':
+        # check if the post request has the file part
+        if 'file' not in request.files:
+            flash('No file part')
+            return redirect(request.url)
+        file = request.files['file']
+        # If the user does not select a file, the browser submits an
+        # empty file without a filename.
+        if file.filename == '':
+            flash('No selected file')
+            return redirect(request.url)
+        if file and allowed_file(file.filename):
+            filename = secure_filename(file.filename)
+            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            # print(filename)
+            edit_image = EditImage(filename)
+
+            file_path = f'{upload_dir}/{filename}'
+            temp_file = edit_image.processing_file
+
+            plate_recognizer = PlateRecognizer(filename, temp_file)
+
+            # time.sleep(1.1)
+
+            token = f'Token {TOKEN}'
+            regions = ['ng']  # Change to your country
+
+            file_size = getsize(file_path)
+            one_mb_size = 1024 * 1024
+            three_mb_size_limit = 3 * one_mb_size
+            file_size_mb = round(file_size / one_mb_size, 2)
+            is_image_resized = False
+
+            print(f'Image Mame: {filename} | Image Size: {file_size_mb} MB')
+            # print(file_path)
+
+            # Checking image file size
+            if file_size > three_mb_size_limit:
+                # Resize image and copy into WIP folder
+                img = Image.open(edit_image.uploaded_file)
+                edit_image.resize_img(img)
+                is_image_resized = True
+            else:
+                # Copy original image into WIP folder
+                shutil.copy(edit_image.uploaded_file, edit_image.processing_file)
+
+            plate_data = plate_recognizer.check_process_plate(regions, token)
+
+            # Move processed file into processed dir
+            replace(temp_file, f'{all_paths.processed_path}/{filename}')
+
+            # Move original resized file into original dir
+            if is_image_resized:
+                replace(file_path, f'{all_paths.original_file_path}/{filename}')
+            else:
+                remove(file_path)
+
+            print('********')
+            print(plate_data)
+            session["plate_data"] = plate_data
+            session["name"] = filename
+            return redirect(url_for('capture_offence', name=filename, plate_data=plate_data))
     return render_template("index.html")
 
 
-@app.route("/new-image", methods=["GET", "POST"])
-def capture_image():
+@app.route("/capture-details", methods=["GET", "POST"])
+def capture_offence():
+    plate_data = session.get("plate_data")
+    filename = session.get("name")
+    print('^^^^^^^^^^^')
+    print(plate_data)
+
+    image = f'{all_paths.processed_path}/{filename}'
+
     form = CreatePostForm()
+    form.plate_no.choices = [
+        (row["plate"].upper(), row["plate"].upper() + ' / ' + str(round(row["score"] * 100, 2)) + '%') for row in
+        plate_data["results"][0]["candidates"]]
+
     if form.validate_on_submit():
         new_post = Bookings(
             title=form.title.data,
@@ -176,7 +272,8 @@ def capture_image():
         db.session.add(new_post)
         db.session.commit()
         return redirect(url_for("get_all_posts"))
-    return render_template("make-post.html", form=form, current_user=current_user)
+    return render_template("make-post.html", form=form, current_user=current_user, plate_data=plate_data, image=image)
+
 
 #
 # @app.route("/post/<int:post_id>", methods=['GET', 'POST'])

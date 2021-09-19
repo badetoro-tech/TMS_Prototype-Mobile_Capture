@@ -1,31 +1,35 @@
 {% include "header.html" %}
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{{ url_for('static', filename='img/traffic-police.jpg')}}')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>Traffic Offence Booking</h1>
-            <span class="subheading">Upload or capture an offence.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Main Content -->
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/traffic-police.jpg')}}')">
+  <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <div class="clearfix">
-          <input type="file" name="image" accept="image/*" class="btn btn-primary float-left">
-<!--          <a class="btn btn-primary float-left" href="{{url_for('capture_image')}}">Capture Offence</a>-->
+        <div class="site-heading">
+          <h1>Traffic Offence Booking</h1>
+          <span class="subheading">Upload or capture an offence.</span>
         </div>
       </div>
     </div>
   </div>
-  <hr>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <div class="clearfix">
+        <!--          <input type="file" name="image" accept="image/*" class="btn btn-primary float-left">-->
+        <!--          <a class="btn btn-primary float-left" href="{{url_for('capture_image')}}">Capture Offence</a>-->
+        <form method=post enctype=multipart/form-data>
+          <input type=file name=file>
+          <input type=submit value=Upload>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
 
 {% include "footer.html" %}

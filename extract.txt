@@ -1,0 +1,264 @@
+{
+    "processing_time": 154.587,
+    "results": [
+        {
+            "box": {
+                "xmin": 395,
+                "ymin": 344,
+                "xmax": 559,
+                "ymax": 417
+            },
+            "plate": "fkj536df",
+            "region": {
+                "code": "ng",
+                "score": 0.951
+            },
+            "score": 0.906,
+            "candidates": [
+                {
+                    "score": 0.906,
+                    "plate": "fkj536df"
+                }
+            ],
+            "dscore": 0.99,
+            "vehicle": {
+                "score": 0.772,
+                "type": "Sedan",
+                "box": {
+                    "xmin": 76,
+                    "ymin": 30,
+                    "xmax": 850,
+                    "ymax": 658
+                }
+            }
+        }
+    ],
+    "filename": "1957_CfOcw_3.jpg",
+    "version": 1,
+    "camera_id": null,
+    "timestamp": "2021-09-19T19:57:23.153813Z"
+}
+{
+    "processing_time": 48.994,
+    "results": [
+        {
+            "box": {
+                "xmin": 265,
+                "ymin": 292,
+                "xmax": 389,
+                "ymax": 348
+            },
+            "plate": "lnd475bp",
+            "region": {
+                "code": "ng",
+                "score": 0.933
+            },
+            "score": 0.903,
+            "candidates": [
+                {
+                    "score": 0.903,
+                    "plate": "lnd475bp"
+                }
+            ],
+            "dscore": 0.823,
+            "vehicle": {
+                "score": 0.844,
+                "type": "Sedan",
+                "box": {
+                    "xmin": 47,
+                    "ymin": 24,
+                    "xmax": 586,
+                    "ymax": 447
+                }
+            }
+        }
+    ],
+    "filename": "2001_b6nU2_2.jpg",
+    "version": 1,
+    "camera_id": null,
+    "timestamp": "2021-09-19T20:01:59.456131Z"
+}
+{
+    "processing_time": 66.415,
+    "results": [
+        {
+            "box": {
+                "xmin": 284,
+                "ymin": 324,
+                "xmax": 422,
+                "ymax": 399
+            },
+            "plate": "babyb0y",
+            "region": {
+                "code": "ng",
+                "score": 0.293
+            },
+            "score": 0.9,
+            "candidates": [
+                {
+                    "score": 0.9,
+                    "plate": "babyb0y"
+                },
+                {
+                    "score": 0.899,
+                    "plate": "babyboy"
+                },
+                {
+                    "score": 0.781,
+                    "plate": "8abyb0y"
+                },
+                {
+                    "score": 0.78,
+                    "plate": "ba8yb0y"
+                },
+                {
+                    "score": 0.779,
+                    "plate": "ba8yboy"
+                },
+                {
+                    "score": 0.779,
+                    "plate": "8abyboy"
+                },
+                {
+                    "score": 0.778,
+                    "plate": "baby80y"
+                },
+                {
+                    "score": 0.776,
+                    "plate": "baby8oy"
+                },
+                {
+                    "score": 0.661,
+                    "plate": "8a8yb0y"
+                },
+                {
+                    "score": 0.659,
+                    "plate": "8a8yboy"
+                }
+            ],
+            "dscore": 0.942,
+            "vehicle": {
+                "score": 0.802,
+                "type": "Sedan",
+                "box": {
+                    "xmin": 28,
+                    "ymin": 21,
+                    "xmax": 660,
+                    "ymax": 552
+                }
+            }
+        }
+    ],
+    "filename": "2010_8Q8xs_1.jpg",
+    "version": 1,
+    "camera_id": null,
+    "timestamp": "2021-09-19T20:10:46.006111Z"
+}
+{
+    "processing_time": 42.692,
+    "results": [
+        {
+            "box": {
+                "xmin": 233,
+                "ymin": 211,
+                "xmax": 300,
+                "ymax": 238
+            },
+            "plate": "fg902b02",
+            "region": {
+                "code": "ng",
+                "score": 0.079
+            },
+            "score": 0.884,
+            "candidates": [
+                {
+                    "score": 0.884,
+                    "plate": "fg902b02"
+                },
+                {
+                    "score": 0.883,
+                    "plate": "fg902bo2"
+                },
+                {
+                    "score": 0.883,
+                    "plate": "fg9o2b02"
+                },
+                {
+                    "score": 0.882,
+                    "plate": "fg9o2bo2"
+                },
+                {
+                    "score": 0.776,
+                    "plate": "fg902802"
+                },
+                {
+                    "score": 0.775,
+                    "plate": "fg9028o2"
+                },
+                {
+                    "score": 0.775,
+                    "plate": "fg9o2802"
+                },
+                {
+                    "score": 0.773,
+                    "plate": "fg9o28o2"
+                }
+            ],
+            "dscore": 0.776,
+            "vehicle": {
+                "score": 0.653,
+                "type": "Sedan",
+                "box": {
+                    "xmin": 86,
+                    "ymin": 55,
+                    "xmax": 461,
+                    "ymax": 286
+                }
+            }
+        }
+    ],
+    "filename": "2037_WmpuE_4.jpg",
+    "version": 1,
+    "camera_id": null,
+    "timestamp": "2021-09-19T20:37:06.166695Z"
+}
+{
+    "processing_time": 73.602,
+    "results": [
+        {
+            "box": {
+                "xmin": 118,
+                "ymin": 226,
+                "xmax": 165,
+                "ymax": 249
+            },
+            "plate": "kja641xa",
+            "region": {
+                "code": "ng",
+                "score": 0.887
+            },
+            "score": 0.908,
+            "candidates": [
+                {
+                    "score": 0.908,
+                    "plate": "kja641xa"
+                }
+            ],
+            "dscore": 0.9168,
+            "vehicle": {
+                "score": 0.613,
+                "type": "Sedan",
+                "box": {
+                    "xmin": 95,
+                    "ymin": 77,
+                    "xmax": 407,
+                    "ymax": 387
+                }
+            }
+        }
+    ],
+    "filename": "2212_JHBsc_5433.jpg",
+    "version": 1,
+    "camera_id": null,
+    "timestamp": "2021-09-19T22:12:04.429578Z"
+}
