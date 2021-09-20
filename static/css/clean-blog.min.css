@@ -279,13 +279,13 @@ header.masthead .overlay {
 }
 
 header.masthead .page-heading,header.masthead .post-heading,header.masthead .site-heading {
-  padding: 75px 0 60px;
+  padding: 100px 0 60px;
   color: #fff
 }
 
 @media only screen and (min-width:768px) {
   header.masthead .page-heading,header.masthead .post-heading,header.masthead .site-heading {
-    padding: 75px 0
+    padding: 100px 0
   }
 }
 
