@@ -279,7 +279,7 @@ header.masthead .overlay {
 }
 
 header.masthead .page-heading,header.masthead .post-heading,header.masthead .site-heading {
-  padding: 100px 0 60px;
+  padding: 100px 0 75px;
   color: #fff
 }
 
@@ -309,7 +309,7 @@ header.masthead .page-heading .subheading,header.masthead .site-heading .subhead
 
 @media only screen and (min-width:768px) {
   header.masthead .page-heading h1,header.masthead .site-heading h1 {
-    font-size: 30px
+    font-size: 40px
   }
 }
 
