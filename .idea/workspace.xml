@@ -4,53 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - testing plate number capture">
-      <change afterPath="$PROJECT_DIR$/static/img/register.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/ticket.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/traffic-light - Copy.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/traffic-light.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/8af7.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/badetoro_20210920-134448_3.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/badetoro_20210920-134835_45.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-185304_images.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-191416_5433.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-191617_IMG_20210830_150918.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-194210_1.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-200851_unnamed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-201020_unnamed.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-201331_3.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-204132_nigeria55cd07-2018veh.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-204653_2.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-205453_45.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-210359_2.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-210528_3.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-221218_1.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-222715_images.jfif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-222803_5433.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-223025_4.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-223450_NANS-IMG-20190105-WA0001.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-234659_IMG_20210830_150938.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tms_prototype.sqbpro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - working version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract.txt" beforeDir="false" afterPath="$PROJECT_DIR$/extract.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/clean-blog.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/clean-blog.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/about-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/contact-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/img/edit-bg.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/landing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/make-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post-offence.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/post.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tms_prototype.db" beforeDir="false" afterPath="$PROJECT_DIR$/tms_prototype.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +25,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
@@ -88,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -260,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632126156242</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="start - working version">
+      <created>1632178883336</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1632178883336</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -287,6 +255,7 @@
     <MESSAGE value="start - include gitignore and requirements.txt&#10;&#10;-- add gunicorn" />
     <MESSAGE value="start - capture image" />
     <MESSAGE value="start - testing plate number capture" />
-    <option name="LAST_COMMIT_MESSAGE" value="start - testing plate number capture" />
+    <MESSAGE value="start - working version" />
+    <option name="LAST_COMMIT_MESSAGE" value="start - working version" />
   </component>
 </project>
