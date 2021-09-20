@@ -8,6 +8,7 @@ from flask_ckeditor import CKEditorField
 class CreatePostForm(FlaskForm):
     plate_no = SelectField('Plate Number')
     replace_plate_no = StringField("Plate Number (If not above)")
+    offence = SelectField('Traffic Offence')
     subtitle = StringField("Subtitle", validators=[DataRequired()])
     img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
     body = CKEditorField("Blog Content", validators=[DataRequired()])

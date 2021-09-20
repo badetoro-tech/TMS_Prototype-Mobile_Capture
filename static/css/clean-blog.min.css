@@ -3,7 +3,7 @@
  * Copyright 2013-2020 Start Bootstrap
  * Licensed under MIT (https://github.com/StartBootstrap/startbootstrap-clean-blog/blob/master/LICENSE)
  */body {
-  font-size: 20px;
+  font-size: 14px;
   color: #212529;
   font-family: Lora,'Times New Roman',serif
 }
@@ -37,9 +37,9 @@ blockquote {
 }
 
 .section-heading {
-  font-size: 36px;
+  font-size: 28px;
   font-weight: 700;
-  margin-top: 60px
+  margin-top: 40px
 }
 
 .comment {
@@ -279,13 +279,13 @@ header.masthead .overlay {
 }
 
 header.masthead .page-heading,header.masthead .post-heading,header.masthead .site-heading {
-  padding: 100px 0 75px;
+  padding: 75px 0 60px;
   color: #fff
 }
 
 @media only screen and (min-width:768px) {
   header.masthead .page-heading,header.masthead .post-heading,header.masthead .site-heading {
-    padding: 100px 0
+    padding: 75px 0
   }
 }
 
@@ -294,12 +294,12 @@ header.masthead .page-heading,header.masthead .site-heading {
 }
 
 header.masthead .page-heading h1,header.masthead .site-heading h1 {
-  font-size: 50px;
+  font-size: 30px;
   margin-top: 0
 }
 
 header.masthead .page-heading .subheading,header.masthead .site-heading .subheading {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 300;
   line-height: 1.1;
   display: block;
@@ -309,12 +309,12 @@ header.masthead .page-heading .subheading,header.masthead .site-heading .subhead
 
 @media only screen and (min-width:768px) {
   header.masthead .page-heading h1,header.masthead .site-heading h1 {
-    font-size: 40px
+    font-size: 30px
   }
 }
 
 header.masthead .post-heading h1 {
-  font-size: 35px
+  font-size: 25px
 }
 
 header.masthead .post-heading .meta,header.masthead .post-heading .subheading {
@@ -323,7 +323,7 @@ header.masthead .post-heading .meta,header.masthead .post-heading .subheading {
 }
 
 header.masthead .post-heading .subheading {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600;
   margin: 10px 0 30px;
   font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif
@@ -342,11 +342,11 @@ header.masthead .post-heading .meta a {
 
 @media only screen and (min-width:768px) {
   header.masthead .post-heading h1 {
-    font-size: 40px
+    font-size: 25px
   }
 
   header.masthead .post-heading .subheading {
-    font-size: 24px
+    font-size: 16px
   }
 }
 

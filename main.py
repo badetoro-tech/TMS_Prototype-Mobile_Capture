@@ -259,7 +259,12 @@ def capture_offence():
     form.plate_no.choices = [
         (row["plate"].upper(), row["plate"].upper() + ' / ' + str(round(row["score"] * 100, 2)) + '%') for row in
         plate_data["results"][0]["candidates"]]
+    form.offence.choices = [
+        (row.id, row.offence) for row in Offence.query.all()
+    ]
 
+    for row in Offence.query.all():
+        print(f'{row.id}/{row.offence}')
     if form.validate_on_submit():
         new_post = Bookings(
             title=form.title.data,

@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - testing plate number capture">
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/WIP/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/cropped/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/original/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/empty.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/uploads/empty.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/clean-blog.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/clean-blog.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/make-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/make-post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tms_prototype.db" beforeDir="false" afterPath="$PROJECT_DIR$/tms_prototype.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +192,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632091444621</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="start - testing plate number capture">
+      <created>1632091588865</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1632091588865</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
