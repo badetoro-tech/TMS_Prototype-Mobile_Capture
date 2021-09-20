@@ -1,46 +1,42 @@
 from flask import Flask, render_template, redirect, url_for, flash, abort, request, session
 from flask_bootstrap import Bootstrap
 from flask_ckeditor import CKEditor
-from datetime import date, datetime
+from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.orm import relationship
-from flask_login import UserMixin, login_user, LoginManager, login_required, current_user, logout_user
-from forms import CreatePostForm, RegisterForm, LoginForm, CommentForm
-from flask_gravatar import Gravatar
+from flask_login import UserMixin, login_user, LoginManager, current_user, logout_user
+from forms import CreateTravelOffence, RegisterForm, LoginForm, CommentForm, SearchForm
 import os
 from functools import wraps
 from sqlalchemy.ext.declarative import declarative_base
 from werkzeug.utils import secure_filename
 from pprint import pprint
+
 from os import listdir, replace, remove
 from os.path import isfile, join, getsize
-import time
 from PIL import Image
 from modules.image_edit import EditImage, AllPaths
 from modules.plate_recognizer import PlateRecognizer
 import shutil
-from collections import namedtuple
 
 UPLOAD_FOLDER = 'static/vehicle-capture/uploads'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif', 'jfif'}
-TOKEN = '8c7da83008dc52f30a4624fcaaf1d7c9912e69fc'
+# Register on https://platerecognizer.com/ to get your own token
+TOKEN = os.environ.get('PLATE_RECOGIZER_TOKEN')
 
 all_paths = AllPaths()
 upload_dir = all_paths.upload_path
+append_username_to_image = True
 
 app = Flask(__name__)
-# app.config['SECRET_KEY'] = os.urandom(16)
-# app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
-app.config['SECRET_KEY'] = '#RIFUiahfsdhio83F8D3'
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 ckeditor = CKEditor(app)
 Bootstrap(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 Base = declarative_base()
-# gravatar = Gravatar(app, size=100, rating='g', default='retro', force_default=False, force_lower=False, use_ssl=False,
-#                     base_url=None)
 
 # CONNECT TO DB
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///tms_prototype.db')
@@ -50,17 +46,23 @@ db = SQLAlchemy(app)
 current_timestamp = datetime.now()
 
 
+# pprint(os.environ)
 # CONFIGURE TABLES
 
 class Bookings(db.Model):
     __tablename__ = "traffic_bookings"
     id = db.Column(db.Integer, primary_key=True)
-    officer_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    officer = relationship("User", back_populates="bookings")
-    offence_id = db.Column(db.Integer, db.ForeignKey("traffic_offence.id"))
-    offence = relationship("Offence", back_populates="booking")
+    officer_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
+    officer = relationship("User", back_populates="booking_officer")
+    offence_id = db.Column(db.Integer, db.ForeignKey("traffic_offence.id"), nullable=False)
+    offence = relationship("Offence", back_populates="offence_booking")
     plate_no = db.Column(db.String(250), nullable=False)
-    vehicle_type = db.Column(db.String(250), nullable=False)
+    vehicle_type = db.Column(db.String(250), nullable=True)
+    vehicle_model = db.Column(db.String(250), nullable=True)
+    vehicle_make = db.Column(db.String(250), nullable=True)
+    vehicle_color = db.Column(db.String(250), nullable=True)
+    vehicle_orientation = db.Column(db.String(250), nullable=True)
+    comment = db.Column(db.Text, nullable=True)
     img = db.Column(db.String(250), nullable=False)
     date_created = db.Column(db.DateTime, nullable=False)
 
@@ -71,35 +73,25 @@ class User(UserMixin, db.Model):
     name = db.Column(db.String(250), nullable=False)
     email = db.Column(db.String(250), unique=True, nullable=False)
     username = db.Column(db.String(250), unique=True, nullable=False)
+    booking_officer = relationship("Bookings", back_populates="officer")
     password = db.Column(db.String(250), nullable=False)
-    bookings = relationship("Bookings", back_populates="officer")
     date_created = db.Column(db.DateTime, nullable=False)
 
 
 class Offence(db.Model):
     __tablename__ = "traffic_offence"
     id = db.Column(db.Integer, primary_key=True)
-    offence = db.Column(db.String(250), nullable=False)
-    booking = relationship("Bookings", back_populates="offence")
+    offence_name = db.Column(db.String(250), nullable=False)
+    offence_booking = relationship("Bookings", back_populates="offence")
     offence_desc = db.Column(db.Text, nullable=True)
     fees = db.Column(db.Float, nullable=False)
     date_created = db.Column(db.DateTime, nullable=False)
 
 
-# class Fees(db.Model):
-#     __tablename__ = "traffic_offence"
-#     id = db.Column(db.Integer, primary_key=True)
-#     offence_id = db.Column(db.Integer, db.ForeignKey("traffic_offence.id"))
-#     offence = db.Column(db.String(250), nullable=False)
-#     offence_desc = db.Column(db.Text, nullable=True)
-#     enabled = db.Column(db.Boolean, nullable=False)
-#     date_created = db.Column(db.Datetime, nullable=False)
-
-
-def admin_only(function):
+def authenticated_user(function):
     @wraps(function)
     def wrapper_function(*args, **kwargs):
-        if not current_user.is_authenticated or current_user.id != 1:
+        if not current_user.is_authenticated:
             return abort(403)
         else:
             return function(*args, **kwargs)
@@ -120,11 +112,6 @@ db.create_all()
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-
-# @app.route('/')
-# def get_all_posts():
-#     posts = Bookings.query.all()
-#     return render_template("index.html", all_posts=posts)
 
 @app.route('/', methods=['GET', 'POST'])
 def login():
@@ -178,9 +165,10 @@ def logout():
     return redirect(url_for('login'))
 
 
-@app.route('/capture_image', methods=['GET', 'POST'])
+@app.route('/offence', methods=['GET', 'POST'])
+@authenticated_user
 def capture_image():
-    # posts = Bookings.query.all()
+    username = current_user.username
     if request.method == 'POST':
         # check if the post request has the file part
         if 'file' not in request.files:
@@ -230,7 +218,12 @@ def capture_image():
             plate_data = plate_recognizer.check_process_plate(regions, token)
 
             # Move processed file into processed dir
-            replace(temp_file, f'{all_paths.processed_path}/{filename}')
+            if append_username_to_image:
+                date_string = datetime.now().strftime("%Y%m%d-%H%M%S")
+                new_filename = f'{username}_{date_string}_{filename}'
+                replace(temp_file, f'{all_paths.processed_path}/{new_filename}')
+            else:
+                replace(temp_file, f'{all_paths.processed_path}/{filename}')
 
             # Move original resized file into original dir
             if is_image_resized:
@@ -238,132 +231,91 @@ def capture_image():
             else:
                 remove(file_path)
 
-            print('********')
-            print(plate_data)
             session["plate_data"] = plate_data
             session["name"] = filename
-            return redirect(url_for('capture_offence', name=filename, plate_data=plate_data))
-    return render_template("index.html")
+            session["filename"] = new_filename
+            return redirect(url_for('capture_offence'))
+    return render_template("landing.html")
 
 
 @app.route("/capture-details", methods=["GET", "POST"])
 def capture_offence():
     plate_data = session.get("plate_data")
     filename = session.get("name")
-    print('^^^^^^^^^^^')
-    print(plate_data)
+    processed_file = session.get("filename")
 
-    image = f'{all_paths.processed_path}/{filename}'
+    image = f'{all_paths.processed_path}/{processed_file}'
 
-    form = CreatePostForm()
+    form = CreateTravelOffence()
     form.plate_no.choices = [
         (row["plate"].upper(), row["plate"].upper() + ' / ' + str(round(row["score"] * 100, 2)) + '%') for row in
         plate_data["results"][0]["candidates"]]
     form.offence.choices = [
-        (row.id, row.offence) for row in Offence.query.all()
+        (row.id, row.offence_name) for row in Offence.query.all()
     ]
+    form.vehicle_type.data = plate_data["results"][0]["vehicle"]["type"]
 
-    for row in Offence.query.all():
-        print(f'{row.id}/{row.offence}')
-    if form.validate_on_submit():
-        new_post = Bookings(
-            title=form.title.data,
-            subtitle=form.subtitle.data,
-            body=form.body.data,
-            img_url=form.img_url.data,
-            author=current_user,
-            date=date.today().strftime("%B %d, %Y")
+    if request.method == 'POST':
+        offence_committed = Offence.query.filter_by(id=form.offence.data).first()
+        # print(form.vehicle_type.data)
+
+        if form.replace_plate_no.data:
+            plate_num = form.replace_plate_no.data
+        else:
+            plate_num = form.plate_no.data
+
+        new_offence = Bookings(
+            officer=current_user,
+            offence=offence_committed,
+            plate_no=plate_num,
+            vehicle_type=form.vehicle_type.data,
+            vehicle_model='',
+            vehicle_make='',
+            vehicle_color='',
+            vehicle_orientation='',
+            comment='',
+            img='',
+            date_created=datetime.now()
         )
-        db.session.add(new_post)
+        db.session.add(new_offence)
         db.session.commit()
-        return redirect(url_for("get_all_posts"))
-    return render_template("make-post.html", form=form, current_user=current_user, plate_data=plate_data, image=image)
+        return redirect(url_for("capture_image"))
+    return render_template("post-offence.html", form=form, current_user=current_user, plate_data=plate_data,
+                           image=image)
 
 
-#
-# @app.route("/post/<int:post_id>", methods=['GET', 'POST'])
-# def show_post(post_id):
-#     form = CommentForm()
-#     requested_post = Bookings.query.get(post_id)
-#     if form.validate_on_submit():
-#         comment = form.comment_text.data
-#         if not current_user.is_authenticated:
-#             flash('You need to login, or register to comment.')
-#             return redirect(url_for('login'))
-#         else:
-#             new_comment = Comment(
-#                 text=comment,
-#                 comment_author=current_user,
-#                 parent_post=requested_post
-#             )
-#             db.session.add(new_comment)
-#             db.session.commit()
-#
-#             return redirect(url_for('show_post', post_id=post_id))
-#
-#     return render_template("post.html", post=requested_post, form=form, current_user=current_user)
-#
-#
-# @app.route("/about")
-# def about():
-#     return render_template("about.html")
-#
-#
-# @app.route("/contact")
-# def contact():
-#     return render_template("contact.html")
-#
-#
-# @app.route("/new-post", methods=["GET", "POST"])
-# @admin_only
-# def add_new_post():
-#     form = CreatePostForm()
-#     if form.validate_on_submit():
-#         new_post = Bookings(
-#             title=form.title.data,
-#             subtitle=form.subtitle.data,
-#             body=form.body.data,
-#             img_url=form.img_url.data,
-#             author=current_user,
-#             date=date.today().strftime("%B %d, %Y")
-#         )
-#         db.session.add(new_post)
-#         db.session.commit()
-#         return redirect(url_for("get_all_posts"))
-#     return render_template("make-post.html", form=form, current_user=current_user)
-#
-#
-# @app.route("/edit-post/<int:post_id>", methods=["GET", "POST"])
-# @admin_only
-# def edit_post(post_id):
-#     post = Bookings.query.get(post_id)
-#     edit_form = CreatePostForm(
-#         title=post.title,
-#         subtitle=post.subtitle,
-#         img_url=post.img_url,
-#         author=post.officer,
-#         body=post.body
-#     )
-#     if edit_form.validate_on_submit():
-#         post.title = edit_form.title.data
-#         post.subtitle = edit_form.subtitle.data
-#         post.img_url = edit_form.img_url.data
-#         # post.officer = edit_form.officer.data
-#         post.body = edit_form.body.data
-#         db.session.commit()
-#         return redirect(url_for("show_post", post_id=post.id))
-#
-#     return render_template("make-post.html", form=edit_form, current_user=current_user)
-#
-#
-# @app.route("/delete/<int:post_id>")
-# @admin_only
-# def delete_post(post_id):
-#     post_to_delete = Bookings.query.get(post_id)
-#     db.session.delete(post_to_delete)
-#     db.session.commit()
-#     return redirect(url_for('get_all_posts'))
+@app.route('/search', methods=["GET", "POST"])
+def search_offence():
+    list_of_rows = [['Plate Number', 'Vehicle Type', 'Traffic Offence', 'Charge', 'Officer', 'Date Captured']]
+    query = Bookings.query.limit(20).all()
+    for row in query:
+        new_row = [row.plate_no,
+                   row.vehicle_type,
+                   Offence.query.get(row.offence_id).offence_name,
+                   "₦{:,.2f}".format(Offence.query.get(row.offence_id).fees),
+                   User.query.get(row.officer_id).name,
+                   row.date_created.strftime("%d-%b-%Y %I:%M:%S%p")]
+        list_of_rows.append(new_row)
+
+    search_form = SearchForm()
+    if search_form.validate_on_submit():
+        search_query = search_form.search_value.data
+        # print(search_query)
+        search_result = Bookings.query.filter_by(plate_no=search_query).all()
+        list_of_rows = [['Plate Number', 'Vehicle Type', 'Traffic Offence', 'Charge', 'Officer', 'Date Captured']]
+        for row in search_result:
+            new_row = [row.plate_no,
+                       row.vehicle_type,
+                       Offence.query.get(row.offence_id).offence_name,
+                       "₦{:,.2f}".format(Offence.query.get(row.offence_id).fees),
+                       User.query.get(row.officer_id).name,
+                       row.date_created.strftime("%d-%b-%Y %I:%M:%S%p")]
+            list_of_rows.append(new_row)
+
+        return render_template("search.html", form=search_form, result=list_of_rows, query=search_query)
+
+    return render_template("search.html", form=search_form, result=list_of_rows)
 
 
 if __name__ == "__main__":
-    app.run(host='192.168.100.5', port=5000, debug=True)
+    app.run(host='localhost', port=5000, debug=True)

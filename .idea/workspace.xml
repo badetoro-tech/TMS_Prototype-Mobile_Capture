@@ -5,7 +5,52 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - testing plate number capture">
+      <change afterPath="$PROJECT_DIR$/static/img/register.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/ticket.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/traffic-light - Copy.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/traffic-light.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/8af7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/badetoro_20210920-134448_3.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/badetoro_20210920-134835_45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-185304_images.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-191416_5433.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-191617_IMG_20210830_150918.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-194210_1.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-200851_unnamed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-201020_unnamed.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-201331_3.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-204132_nigeria55cd07-2018veh.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-204653_2.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-205453_45.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-210359_2.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-210528_3.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-221218_1.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-222715_images.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-222803_5433.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-223025_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-223450_NANS-IMG-20190105-WA0001.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210920-234659_IMG_20210830_150938.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/search.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tms_prototype.sqbpro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extract.txt" beforeDir="false" afterPath="$PROJECT_DIR$/extract.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/clean-blog.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/clean-blog.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/about-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/contact-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/edit-bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/about.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/landing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/make-post.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post-offence.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tms_prototype.db" beforeDir="false" afterPath="$PROJECT_DIR$/tms_prototype.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +88,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -201,7 +246,21 @@
       <option name="project" value="LOCAL" />
       <updated>1632125665128</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="start - testing plate number capture">
+      <created>1632126024804</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1632126024804</updated>
+    </task>
+    <task id="LOCAL-00019" summary="start - testing plate number capture">
+      <created>1632126156242</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1632126156242</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -219,6 +278,9 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/TMS_Prototype-Mobile_Capture" />
+    </ignored-roots>
     <MESSAGE value="start" />
     <MESSAGE value="start - include gitignore" />
     <MESSAGE value="start - include gitignore and requirements.txt" />

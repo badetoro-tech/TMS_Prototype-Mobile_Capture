@@ -1,0 +1,51 @@
+{% include "header.html" %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/traffic-light.jpg')}}')">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>Search Offence</h1>
+          <span class="subheading">Search Offence by Plate Number.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Main Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <form method="POST" action="">
+        {{ form.hidden_tag() }}
+        {{ form.search_value.label }} {{ form.search_value }}
+        <button>Search</button>
+
+        {% if result%}
+        {% if query %}
+        <h6>Result for: {{ query }}</h6>
+        {% endif %}
+
+        <table class="table">
+
+          {% for row in result %}
+          <tr>
+            {% for item in row %}
+            <td>{{ item }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </table>
+
+        {% endif %}
+        <p><a href="{{ url_for('capture_image') }}">Return to home page</a></p>
+      </form>
+    </div>
+  </div>
+</div>
+<hr>
+
+{% include "footer.html" %}

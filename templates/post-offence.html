@@ -5,7 +5,7 @@
 {% block content %}
 {% include "header.html" %}
 <!-- Page Header -->
-<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/edit-bg.jpg')}}')">
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='img/ticket.jpg')}}')">
     <div class="overlay"></div>
     <div class="container">
         <div class="row">
@@ -26,17 +26,16 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            <!--        {{ ckeditor.load() }}-->
-            <!--        {{ ckeditor.config(name='body') }}-->
             <img src="{{image}}" height="200">
-            <!--        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}) }}-->
-            <form method="POST" action="">
+            <form method="POST" action="{{ url_for('capture_offence') }}">
                 {{ form.hidden_tag() }}
                 {{ form.plate_no.label }} {{ form.plate_no }} <br>
                 {{ form.replace_plate_no.label }} {{ form.replace_plate_no }} <br>
+                {{ form.vehicle_type.label }} {{ form.vehicle_type }} <br>
                 {{ form.offence.label }} {{ form.offence }} <br>
-                <button>Submit</button>
+                <button class="btn btn-primary">Submit</button>
             </form>
+
         </div>
     </div>
 </div>

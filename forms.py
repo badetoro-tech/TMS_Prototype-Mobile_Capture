@@ -5,13 +5,13 @@ from flask_ckeditor import CKEditorField
 
 
 # WTForm
-class CreatePostForm(FlaskForm):
+class CreateTravelOffence(FlaskForm):
     plate_no = SelectField('Plate Number')
     replace_plate_no = StringField("Plate Number (If not above)")
     offence = SelectField('Traffic Offence')
-    subtitle = StringField("Subtitle", validators=[DataRequired()])
-    img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
-    body = CKEditorField("Blog Content", validators=[DataRequired()])
+    vehicle_type = StringField("Vehicle Type")
+    # img_url = StringField("Blog Image URL", validators=[DataRequired(), URL()])
+    body = CKEditorField("Comment", validators=[DataRequired()])
     submit = SubmitField("Submit Post")
 
 
@@ -34,3 +34,8 @@ class LoginForm(FlaskForm):
 class CommentForm(FlaskForm):
     comment_text = CKEditorField("Comment", validators=[DataRequired()])
     submit = SubmitField("Submit Comment")
+
+
+class SearchForm(FlaskForm):
+    search_value = StringField("Enter Plate Number", validators=[DataRequired()])
+    submit = SubmitField("Search")
