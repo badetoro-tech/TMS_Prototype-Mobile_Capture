@@ -26,6 +26,13 @@
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
             <img src="{{image}}" height="200">
             <form method="POST" action="{{ url_for('capture_offence') }}">
                 {{ form.hidden_tag() }}
