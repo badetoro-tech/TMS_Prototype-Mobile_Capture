@@ -292,13 +292,17 @@ def capture_offence():
         db.session.commit()
         return redirect(url_for("capture_image"))
 
-    form.plate_no.choices = [
-        (row["plate"].upper(), row["plate"].upper() + ' / ' + str(round(row["score"] * 100, 2)) + '%') for row in
-        plate_data["results"][0]["candidates"]]
+    try:
+        form.plate_no.choices = [
+            (row["plate"].upper(), row["plate"].upper() + ' / ' + str(round(row["score"] * 100, 2)) + '%') for row in
+            plate_data["results"][0]["candidates"]]
+        form.vehicle_type.data = plate_data["results"][0]["vehicle"]["type"]
+    except IndexError:
+        flash('Image not clear or car too far')
+
     form.offence.choices = [
         (row.id, row.offence_name) for row in Offence.query.all()
     ]
-    form.vehicle_type.data = plate_data["results"][0]["vehicle"]["type"]
 
     return render_template("post-offence.html", form=form, current_user=current_user, plate_data=plate_data,
                            image=image)
