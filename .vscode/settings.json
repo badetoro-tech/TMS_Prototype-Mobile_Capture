@@ -1,4 +1,3 @@
 {
-    "appService.defaultWebAppToDeploy": "/subscriptions/1e7f1920-4474-49e6-ae8d-43ae35ae28d6/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/tmsdemo-prototype",
-    "appService.deploySubpath": "."
+    "python.pythonPath": "C:\\Users\\badet\\AppData\\Local\\Programs\\Python\\Python39\\python.exe"
 }
