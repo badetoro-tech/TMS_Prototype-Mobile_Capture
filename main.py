@@ -298,7 +298,7 @@ def capture_offence():
             plate_data["results"][0]["candidates"]]
         form.vehicle_type.data = plate_data["results"][0]["vehicle"]["type"]
     except IndexError:
-        flash('Image not clear or car too far')
+        flash('Uploaded image not clear or vehicle too far')
 
     form.offence.choices = [
         (row.id, row.offence_name) for row in Offence.query.all()

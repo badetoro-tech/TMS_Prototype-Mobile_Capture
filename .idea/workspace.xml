@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="start - working version">
+    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="Fix where plate number not recognized">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extract.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -253,7 +251,21 @@
       <option name="project" value="LOCAL" />
       <updated>1632229598555</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="start - working version">
+      <created>1632256406581</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1632256406581</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Fix where plate number not recognized">
+      <created>1632256583429</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1632256583429</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -281,6 +293,7 @@
     <MESSAGE value="start - capture image" />
     <MESSAGE value="start - testing plate number capture" />
     <MESSAGE value="start - working version" />
-    <option name="LAST_COMMIT_MESSAGE" value="start - working version" />
+    <MESSAGE value="Fix where plate number not recognized" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix where plate number not recognized" />
   </component>
 </project>
