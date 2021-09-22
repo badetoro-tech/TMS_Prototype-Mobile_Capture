@@ -15,7 +15,7 @@ from sqlalchemy.ext.declarative import declarative_base
 
 from os import listdir, replace, remove
 from os.path import isfile, join, getsize
-from PIL import Image
+from PIL import Image, ImageOps
 from modules.image_edit import EditImage, AllPaths
 from modules.plate_recognizer import PlateRecognizer
 import shutil
@@ -220,7 +220,9 @@ def capture_image():
             if file_size > three_mb_size_limit:
                 # Resize image and copy into WIP folder
                 img = Image.open(edit_image.uploaded_file)
-                edit_image.resize_img(img)
+                # Get correct image orientation flag to handle uploads from mobiles
+                exif = img.getexif()
+                edit_image.resize_img(img, exif)
                 is_image_resized = True
             else:
                 # Copy original image into WIP folder
