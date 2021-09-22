@@ -1,4 +1,4 @@
-from PIL import Image
+from PIL import Image, ImageOps
 
 IMG_DIR = 'static/vehicle-capture/uploads'
 PROCESSED_DIR = 'static/vehicle-capture/processed'
@@ -30,6 +30,7 @@ class EditImage:
     def crop_image(self):
         # Try image cropping
         img = Image.open(self.uploaded_file)
+        exif = img.getexif()
         width, height = img.size
 
         # print(f'*** Image Width = {img.size[0]} | Image Height = {img.size[1]}')
@@ -43,11 +44,11 @@ class EditImage:
 
         # Cropped image of above dimension
         cropped_img = img.crop((left, top, right, bottom))
-        cropped_img.save(self.cropped_file)
+        cropped_img.save(self.cropped_file, exif=exif)
 
         self.resize_img(cropped_img)
 
-    def resize_img(self, img):
+    def resize_img(self, img, exif):
         base_height = 1024
 
         h_percent = (base_height / float(img.size[1]))
@@ -56,4 +57,4 @@ class EditImage:
 
         # print(f'Image Width = {img.size[0]} | Image Height = {img.size[1]}')
 
-        img.save(self.processing_file)
+        img.save(self.processing_file, exif=exif)
