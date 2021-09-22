@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="Fix where plate number not recognized 2">
+    <list default="true" id="96b2a28d-e584-4b53-b70d-367870f470ce" name="Changes" comment="Get correct image orientation flag to handle uploads from mobiles">
+      <change afterPath="$PROJECT_DIR$/extract.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210922-165842_3040.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210922-165922_images.jfif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210922-165953_8af7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/vehicle-capture/processed/testuser_20210922-170126_IMG_20210830_151006.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modules/image_edit.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/image_edit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210921-124002_3.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210921-124036_2.jfif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210921-124105_IMG_20210830_150938.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210921-124134_NANS-IMG-20190105-WA0001.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210921-125320_IMG_20210830_150918.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/vehicle-capture/processed/demouser_20210921-134244_IMG_20210830_150918.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/plate_recognizer.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/plate_recognizer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tms_prototype.db" beforeDir="false" afterPath="$PROJECT_DIR$/tms_prototype.db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -280,7 +278,14 @@
       <option name="project" value="LOCAL" />
       <updated>1632257099051</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Get correct image orientation flag to handle uploads from mobiles">
+      <created>1632306999143</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1632306999143</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -310,6 +315,7 @@
     <MESSAGE value="start - working version" />
     <MESSAGE value="Fix where plate number not recognized" />
     <MESSAGE value="Fix where plate number not recognized 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix where plate number not recognized 2" />
+    <MESSAGE value="Get correct image orientation flag to handle uploads from mobiles" />
+    <option name="LAST_COMMIT_MESSAGE" value="Get correct image orientation flag to handle uploads from mobiles" />
   </component>
 </project>

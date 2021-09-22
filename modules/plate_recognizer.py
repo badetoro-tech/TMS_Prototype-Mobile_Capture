@@ -3,6 +3,8 @@ import json
 from modules.image_edit import EditImage
 import shutil
 
+PLATERECOGNIZER_JSON_DUMP = False
+
 
 class PlateRecognizer:
 
@@ -21,9 +23,10 @@ class PlateRecognizer:
 
         # pprint(response.json())
 
-        with open('extract.txt', 'a', encoding='utf-8') as data:
-            json.dump(response.json(), data, ensure_ascii=False, indent=4)
-            data.write('\n')
+        if PLATERECOGNIZER_JSON_DUMP:
+            with open('extract.txt', 'a', encoding='utf-8') as data:
+                json.dump(response.json(), data, ensure_ascii=False, indent=4)
+                data.write('\n')
 
         plate_data = response.json()
 
